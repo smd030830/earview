@@ -11,26 +11,24 @@ import kotlinx.coroutines.flow.flowOn
  * the scores are turned into danger sounds (BL-005, BL-006).
  *
  * Audio lives only in memory, in arrays that are overwritten as new audio arrives (BL-007).
- * The microphone and the model are opened when collection starts and released when it ends.
+ * The microphone and the models are opened when collection starts and released when it ends.
  */
 class YamnetSoundDetector(
   private val source: AudioSource,
-  private val classifierFactory: () -> SoundClassifier,
+  private val classifierFactory: () -> DangerScoreClassifier,
   private val dispatcher: CoroutineDispatcher = Dispatchers.IO,
 ) : SoundDetector {
   override fun detect(): Flow<DangerSound> = flow {
     classifierFactory().use { classifier ->
       val window = SlidingAudioWindow(classifier.windowSize)
-      // Windows overlap by half, so a sound is heard within about a window and a half of starting.
-      val hop = classifier.windowSize / WINDOWS_OVERLAP
+      // Keep the shortest model's cadence even when other models need a longer context.
+      val hop = classifier.hopSize
       source.chunks(hop).collect { chunk ->
         val audio = window.append(chunk) ?: return@collect
-        detectedSounds(classifier.classify(audio)).forEach { emit(it) }
+        val scores = classifier.dangerScores(audio)
+        require(scores.size == DangerSound.entries.size)
+        DangerSound.entries.filter { scores[it.ordinal] >= it.rule.threshold }.forEach { emit(it) }
       }
     }
   }.flowOn(dispatcher)
-
-  private companion object {
-    const val WINDOWS_OVERLAP = 2
-  }
 }

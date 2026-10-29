@@ -1,0 +1,18 @@
+EfficientAT mn04_as: Copyright (c) 2022 Florian Schmid, MIT.
+https://github.com/fschmid56/EfficientAT
+See EFFICIENTAT_LICENSE.txt.
+
+PANNs MobileNetV2 code: Copyright (c) 2018-2020 Qiuqiang Kong, MIT.
+https://github.com/qiuqiangkong/audioset_tagging_cnn
+See PANNS_LICENSE.txt.
+
+PANNs pretrained weights: Qiuqiang Kong, Yin Cao, Turab Iqbal, Yuxuan Wang,
+Wenwu Wang, and Mark D. Plumbley. PANNs: Large-Scale Pretrained Audio Neural
+Networks for Audio Pattern Recognition (Pretrained Models), Zenodo 3987831.
+https://zenodo.org/records/3987831
+Licensed under Creative Commons Attribution 4.0 International:
+https://creativecommons.org/licenses/by/4.0/
+
+EarView changes: deployment conversion to float32 TFLite, an in-memory
+16 kHz waveform frontend with 32 kHz resampling, and five grouped danger-sound
+scores. Original pretrained weights are retained. No endorsement is implied.

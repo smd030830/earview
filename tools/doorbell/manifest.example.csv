@@ -1,0 +1,7 @@
+path,label,source_id,split,license,subtype
+audio/dingdong-product-a.wav,doorbell,product-a-session-1,train,REPLACE_WITH_ACTUAL_LICENSE,dingdong
+audio/appliance-a.wav,other,appliance-a-session-1,train,REPLACE_WITH_ACTUAL_LICENSE,appliance
+audio/melody-product-b.wav,doorbell,product-b-session-1,val,REPLACE_WITH_ACTUAL_LICENSE,melody
+audio/phone-b.wav,other,phone-b-session-1,val,REPLACE_WITH_ACTUAL_LICENSE,phone
+audio/electronic-product-c.wav,doorbell,product-c-session-1,test,REPLACE_WITH_ACTUAL_LICENSE,electronic
+audio/music-c.wav,other,music-c-session-1,test,REPLACE_WITH_ACTUAL_LICENSE,music

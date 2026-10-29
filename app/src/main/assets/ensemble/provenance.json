@@ -1,0 +1,27 @@
+{
+  "format": "float32 TFLite, builtin operations only",
+  "input": {"shape": [31200], "sample_rate": 16000, "channels": 1},
+  "output": {"shape": [1, 5], "labels": ["FIRE_ALARM", "SIREN", "BABY_CRYING", "DOORBELL", "CAR_HORN"]},
+  "score_calibration": "none; grouped native sigmoid scores",
+  "modifications": ["sinc upsampling 16 kHz to 32 kHz", "original model-specific waveform frontend", "float32 TensorFlow Lite conversion", "maximum score within each shared AudioSet label group"],
+  "build_versions": {"tensorflow": "2.21.0", "torch": "2.15.0+cpu", "torchvision": "0.29.2+cpu", "torchaudio": "2.11.1+cpu", "torchlibrosa": "0.1.0", "numpy": "2.5.4"},
+  "models": {
+    "efficientat_mn04_as": {
+      "source_revision": "a425fdce92572e602a1d5634799bd9f1f2efa806",
+      "source_url": "https://github.com/fschmid56/EfficientAT",
+      "checkpoint_url": "https://github.com/fschmid56/EfficientAT/releases/download/v0.0.1/mn04_as_mAP_432.pt",
+      "checkpoint_sha256": "899a8c6217063f6941793102a2780b3dd788ab11fce468d9cf5f0577c453321c",
+      "license": "MIT"
+    },
+    "panns_mobilenetv2": {
+      "source_revision": "d2f4b8c18eab44737fcc0de1248ae21eb43f6aa4",
+      "source_url": "https://github.com/qiuqiangkong/audioset_tagging_cnn",
+      "checkpoint_url": "https://zenodo.org/records/3987831/files/MobileNetV2_mAP%3D0.383.pth?download=1",
+      "checkpoint_sha256": "22437af9eb5ed1854b5ad285b4a17d5fc566f1a3b23df40db5541f5705ca340f",
+      "checkpoint_publisher_md5": "838421a9262cce976aa247946d6e2983",
+      "code_license": "MIT",
+      "weights_license": "CC-BY-4.0",
+      "weights_license_url": "https://creativecommons.org/licenses/by/4.0/"
+    }
+  }
+}
