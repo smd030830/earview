@@ -99,6 +99,20 @@ class DetectionControllerTest {
   }
 
   @Test
+  fun glassBreakingAndDoorKnock_alertVibrateAndReturnToIdle() = runTest {
+    val controller = createController()
+    start(controller)
+
+    detect(DangerSound.DOOR_KNOCK, DangerSound.GLASS_BREAKING)
+
+    assertEquals(detected(DangerSound.GLASS_BREAKING, DangerSound.DOOR_KNOCK), controller.state.value)
+    assertEquals(listOf(DangerSound.DOOR_KNOCK, DangerSound.GLASS_BREAKING), vibrator.vibrations)
+
+    advance(ALERT_AUTO_RETURN_MILLIS)
+    assertEquals(DetectionState.Idle, controller.state.value)
+  }
+
+  @Test
   fun stopWhileDetected_movesToOff_andClearsSounds() = runTest {
     val controller = createController()
     start(controller)
@@ -235,7 +249,7 @@ class DetectionControllerTest {
     detect(*DangerSound.entries.reversed().toTypedArray())
 
     assertEquals(
-      detected(DangerSound.FIRE_ALARM, DangerSound.SIREN, DangerSound.BABY_CRYING, overflow = 2),
+      detected(DangerSound.FIRE_ALARM, DangerSound.SIREN, DangerSound.GLASS_BREAKING, overflow = 3),
       controller.state.value,
     )
   }
@@ -291,7 +305,7 @@ class DetectionControllerTest {
   fun overflowCount_shrinksWhenSoundsExpire() = runTest {
     val controller = createController()
     start(controller)
-    detect(DangerSound.FIRE_ALARM, DangerSound.SIREN, DangerSound.BABY_CRYING, DangerSound.DOORBELL)
+    detect(DangerSound.FIRE_ALARM, DangerSound.SIREN, DangerSound.GLASS_BREAKING, DangerSound.DOORBELL)
     assertEquals(1, (controller.state.value as DetectionState.Detected).overflowCount)
     advance(2_000)
     detect(DangerSound.DOORBELL)

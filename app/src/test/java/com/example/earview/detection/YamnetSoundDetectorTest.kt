@@ -81,6 +81,19 @@ class YamnetSoundDetectorTest {
   }
 
   @Test
+  fun emitsGlassBreakingAndDoorKnockFromTheMappedScores() = runTest {
+    val heard = mutableListOf<DangerSound>()
+    backgroundScope.launch { detectorOn(testScheduler).detect().toList(heard) }
+    runCurrent()
+    classifier.next = sceneWith(DangerSound.DOOR_KNOCK, DangerSound.GLASS_BREAKING)
+
+    repeat(2) { chunks.emit(chunk()) }
+    runCurrent()
+
+    assertEquals(listOf(DangerSound.GLASS_BREAKING, DangerSound.DOOR_KNOCK), heard)
+  }
+
+  @Test
   fun classifierSeesTheNewestAudio_oldestFirst() = runTest {
     val detector = detectorOn(testScheduler)
     backgroundScope.launch { detector.detect().collect {} }

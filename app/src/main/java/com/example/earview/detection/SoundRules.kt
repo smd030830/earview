@@ -11,7 +11,8 @@ internal const val YAMNET_CLASS_COUNT = 521
 internal class SoundRule(val classIndices: IntArray, val threshold: Float)
 
 // YAMNet class indexes (see yamnet_label_list.txt; SoundRulesTest checks every name below).
-private const val BABY_CRY = 20 // "Baby cry, infant cry"
+private const val SHATTER = 437 // "Shatter"
+private const val KNOCK = 353 // "Knock"
 private const val DOORBELL = 349 // "Doorbell"
 private const val DING_DONG = 350 // "Ding-dong"
 private const val EMERGENCY_VEHICLE = 316 // "Emergency vehicle"
@@ -31,10 +32,11 @@ private const val FIRE_ALARM = 394 // "Fire alarm"
  * window per clip), in recall on the matching category and false alarms on 672 clips of other
  * categories:
  *  - siren: 97% of 40 clips at 0.5
- *  - crying baby: 85% of 40 clips at 0.5
  *  - car horn: 48% at 0.5 and 57% at 0.3 of 40 clips, with 2 and 3 false alarms; many of its
  *    clips are short or distant, so it gets the lower value
  *  - fire alarm and doorbell: ESC-50 has no such clips, so these are NOT measured; 0.5 is a guess
+ *  - glass breaking and door knock: 0.5 is a provisional value, not a measured threshold
+ * These historical figures are for YAMNet alone, not the current three-model ensemble.
  * Clips per category are far too few to estimate false alarms per hour, so every value still needs
  * tuning on real devices (PRD: at most 3 false alarms per hour).
  */
@@ -44,8 +46,9 @@ private val SIREN_RULE =
     intArrayOf(SIREN, CIVIL_DEFENSE_SIREN, EMERGENCY_VEHICLE, POLICE_CAR, AMBULANCE, FIRE_ENGINE),
     threshold = 0.5f,
   )
-private val BABY_CRYING_RULE = SoundRule(intArrayOf(BABY_CRY), threshold = 0.5f)
+private val GLASS_BREAKING_RULE = SoundRule(intArrayOf(SHATTER), threshold = 0.5f)
 private val DOORBELL_RULE = SoundRule(intArrayOf(DOORBELL, DING_DONG), threshold = 0.5f)
+private val DOOR_KNOCK_RULE = SoundRule(intArrayOf(KNOCK), threshold = 0.5f)
 private val CAR_HORN_RULE = SoundRule(intArrayOf(VEHICLE_HORN), threshold = 0.3f)
 
 internal val DangerSound.rule: SoundRule
@@ -53,8 +56,9 @@ internal val DangerSound.rule: SoundRule
     when (this) {
       DangerSound.FIRE_ALARM -> FIRE_ALARM_RULE
       DangerSound.SIREN -> SIREN_RULE
-      DangerSound.BABY_CRYING -> BABY_CRYING_RULE
+      DangerSound.GLASS_BREAKING -> GLASS_BREAKING_RULE
       DangerSound.DOORBELL -> DOORBELL_RULE
+      DangerSound.DOOR_KNOCK -> DOOR_KNOCK_RULE
       DangerSound.CAR_HORN -> CAR_HORN_RULE
     }
 

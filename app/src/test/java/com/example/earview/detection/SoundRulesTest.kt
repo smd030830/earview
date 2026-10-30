@@ -33,8 +33,9 @@ class SoundRulesTest {
             "Ambulance (siren)",
             "Fire engine, fire truck (siren)",
           ),
-        DangerSound.BABY_CRYING to listOf("Baby cry, infant cry"),
+        DangerSound.GLASS_BREAKING to listOf("Shatter"),
         DangerSound.DOORBELL to listOf("Doorbell", "Ding-dong"),
+        DangerSound.DOOR_KNOCK to listOf("Knock"),
         DangerSound.CAR_HORN to listOf("Vehicle horn, car horn, honking"),
       )
 
@@ -81,6 +82,35 @@ class SoundRulesTest {
   @Test
   fun genericAlarmAndGooseHonk_doNotCountAsDangerSounds() {
     assertTrue(detectedSounds(scores(indexOf("Alarm") to 1f, indexOf("Honk") to 1f, indexOf("Alarm clock") to 1f)).isEmpty())
+  }
+
+  @Test
+  fun babyCryingGenericGlassAndEngineKnocking_doNotTriggerNewSounds() {
+    assertTrue(
+      detectedSounds(
+        scores(
+          indexOf("Baby cry, infant cry") to 1f,
+          indexOf("Glass") to 1f,
+          indexOf("Chink, clink") to 1f,
+          indexOf("Engine knocking") to 1f,
+        ),
+      ).isEmpty(),
+    )
+  }
+
+  @Test
+  fun targetSetContainsTheSixApprovedSoundsInPriorityOrder() {
+    assertEquals(
+      listOf(
+        DangerSound.FIRE_ALARM,
+        DangerSound.SIREN,
+        DangerSound.GLASS_BREAKING,
+        DangerSound.DOORBELL,
+        DangerSound.DOOR_KNOCK,
+        DangerSound.CAR_HORN,
+      ),
+      DangerSound.entries,
+    )
   }
 
   @Test

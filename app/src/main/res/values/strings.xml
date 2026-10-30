@@ -4,10 +4,11 @@
     <!-- Danger sounds -->
     <string name="sound_fire_alarm">화재경보</string>
     <string name="sound_siren">사이렌</string>
-    <string name="sound_baby_crying">아기 울음</string>
+    <string name="sound_glass_breaking">유리 깨짐</string>
     <string name="sound_doorbell">초인종</string>
+    <string name="sound_door_knock">문 두드림</string>
     <string name="sound_car_horn">차량 경적</string>
-    <string name="sound_separator">, </string>
+    <string name="sound_separator">", "</string>
 
     <!-- Status text (shown on screen) -->
     <string name="status_off">꺼져 있음</string>

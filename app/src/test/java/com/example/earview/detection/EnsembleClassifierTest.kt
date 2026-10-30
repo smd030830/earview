@@ -22,13 +22,13 @@ class EnsembleClassifierTest {
 
   @Test
   fun averagesEachSoundIndependently_andAlignsNewestSamples() {
-    val a = Model(4, floatArrayOf(0.9f, 0f, 0f, 0.9f, 0f))
-    val b = Model(2, floatArrayOf(0.6f, 0f, 0f, 0.6f, 0f))
-    val c = Model(3, floatArrayOf(0.3f, 0f, 0f, 0.3f, 0f))
+    val a = Model(4, floatArrayOf(0.9f, 0f, 0.3f, 0.9f, 0.6f, 0f))
+    val b = Model(2, floatArrayOf(0.6f, 0f, 0.6f, 0.6f, 0.3f, 0f))
+    val c = Model(3, floatArrayOf(0.3f, 0f, 0.9f, 0.3f, 0.9f, 0f))
     val ensemble = EnsembleClassifier(listOf(a, b, c))
     assertEquals(4, ensemble.windowSize)
     assertEquals(1, ensemble.hopSize)
-    assertArrayEquals(floatArrayOf(0.6f, 0f, 0f, 0.6f, 0f), ensemble.dangerScores(floatArrayOf(1f, 2f, 3f, 4f)), 0.00001f)
+    assertArrayEquals(floatArrayOf(0.6f, 0f, 0.6f, 0.6f, 0.6f, 0f), ensemble.dangerScores(floatArrayOf(1f, 2f, 3f, 4f)), 0.00001f)
     assertArrayEquals(floatArrayOf(3f, 4f), b.input, 0f)
     assertArrayEquals(floatArrayOf(2f, 3f, 4f), c.input, 0f)
     ensemble.close()
@@ -42,13 +42,13 @@ class EnsembleClassifierTest {
 
   @Test(expected = IllegalArgumentException::class)
   fun rejectsInvalidConfidenceInsteadOfSilentlyMissingDanger() {
-    val model = Model(2, FloatArray(5) { Float.NaN })
+    val model = Model(2, FloatArray(DangerSound.entries.size) { Float.NaN })
     EnsembleClassifier(List(3) { model }).dangerScores(FloatArray(2))
   }
 
   @Test(expected = IllegalArgumentException::class)
   fun rejectsMissingSoundScores() {
-    val model = Model(2, FloatArray(4))
+    val model = Model(2, FloatArray(DangerSound.entries.size - 1))
     EnsembleClassifier(List(3) { model }).dangerScores(FloatArray(2))
   }
 
@@ -65,18 +65,18 @@ class EnsembleClassifierTest {
 
       override fun close() = Unit
     }
-    val expected = FloatArray(5) { DangerSound.entries[it].rule.classIndices.size / 10f }
+    val expected = FloatArray(DangerSound.entries.size) { DangerSound.entries[it].rule.classIndices.size / 10f }
     assertArrayEquals(expected, model.dangerScores(FloatArray(2)), 0f)
   }
 
   @Test
   fun releasesOtherModelsWhenOneCloseFails() {
-    val a = Model(2, FloatArray(5))
-    val b = Model(2, FloatArray(5))
+    val a = Model(2, FloatArray(DangerSound.entries.size))
+    val b = Model(2, FloatArray(DangerSound.entries.size))
     val broken = object : DangerScoreClassifier {
       override val windowSize = 2
 
-      override fun dangerScores(window: FloatArray) = FloatArray(5)
+      override fun dangerScores(window: FloatArray) = FloatArray(DangerSound.entries.size)
 
       override fun close(): Unit = error("close failed")
     }

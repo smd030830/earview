@@ -236,8 +236,9 @@ private fun List<DangerSound>.joinedNames(): String {
 private fun DangerSound.labelRes(): Int = when (this) {
   DangerSound.FIRE_ALARM -> R.string.sound_fire_alarm
   DangerSound.SIREN -> R.string.sound_siren
-  DangerSound.BABY_CRYING -> R.string.sound_baby_crying
+  DangerSound.GLASS_BREAKING -> R.string.sound_glass_breaking
   DangerSound.DOORBELL -> R.string.sound_doorbell
+  DangerSound.DOOR_KNOCK -> R.string.sound_door_knock
   DangerSound.CAR_HORN -> R.string.sound_car_horn
 }
 
@@ -258,7 +259,7 @@ private fun MainScreenIdlePreview() {
 private fun MainScreenDetectedPreview() {
   EarViewTheme {
     MainScreenContent(
-      DetectionState.Detected(listOf(DangerSound.FIRE_ALARM, DangerSound.SIREN, DangerSound.BABY_CRYING), overflowCount = 2),
+      DetectionState.Detected(listOf(DangerSound.FIRE_ALARM, DangerSound.SIREN, DangerSound.GLASS_BREAKING), overflowCount = 3),
       onToggleDetection = {},
       onDismissDetection = {},
     )

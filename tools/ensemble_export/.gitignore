@@ -1,4 +1,5 @@
 EfficientAT-main/
+.cache/
 *.zip
 *.pt
 *.pth

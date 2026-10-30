@@ -28,7 +28,7 @@ LABEL_GROUPS = [
     ["Smoke detector, smoke alarm", "Fire alarm"],
     ["Siren", "Civil defense siren", "Emergency vehicle", "Police car (siren)",
      "Ambulance (siren)", "Fire engine, fire truck (siren)"],
-    ["Baby cry, infant cry"], ["Doorbell", "Ding-dong"],
+    ["Shatter"], ["Doorbell", "Ding-dong"], ["Knock"],
     ["Vehicle horn, car horn, honking"],
 ]
 
@@ -202,7 +202,7 @@ def main():
         "chirp": (.1*np.sin(2*np.pi*(200*t+1000*t*t))).astype(np.float32),
     }
     report = {"input_samples": SAMPLES, "sample_rate": 16000,
-              "output_order": ["FIRE_ALARM", "SIREN", "BABY_CRYING", "DOORBELL", "CAR_HORN"],
+              "output_order": ["FIRE_ALARM", "SIREN", "GLASS_BREAKING", "DOORBELL", "DOOR_KNOCK", "CAR_HORN"],
               "groups": groups, "models": {}}
     ASSETS.mkdir(parents=True, exist_ok=True)
     for kind, name, model, mel, window in [

@@ -20,7 +20,7 @@ class EnsembleClassifier(private val models: List<DangerScoreClassifier>) : Dang
       // Align the end of every model's input with the newest microphone sample.
       val input = if (model.windowSize == window.size) window else window.copyOfRange(window.size - model.windowSize, window.size)
       val scores = model.dangerScores(input)
-      require(scores.size == total.size) { "Every model must score all five danger sounds" }
+      require(scores.size == total.size) { "Every model must score all six danger sounds" }
       scores.forEachIndexed { index, score ->
         require(score.isFinite() && score in 0f..1f) { "Invalid model confidence" }
         total[index] += score / models.size

@@ -16,10 +16,12 @@ internal val DangerSound.vibrationTimings: LongArray
       DangerSound.FIRE_ALARM -> longArrayOf(0, 700, 150, 700, 150, 700)
       // Long, short, long.
       DangerSound.SIREN -> longArrayOf(0, 600, 150, 200, 150, 600)
-      // Four medium pulses.
-      DangerSound.BABY_CRYING -> longArrayOf(0, 250, 200, 250, 200, 250, 200, 250)
+      // Three rapid pulses followed by one long pulse.
+      DangerSound.GLASS_BREAKING -> longArrayOf(0, 120, 100, 120, 100, 120, 150, 500)
       // Two short pulses ("ding-dong").
       DangerSound.DOORBELL -> longArrayOf(0, 150, 150, 150)
+      // Three evenly spaced knocks.
+      DangerSound.DOOR_KNOCK -> longArrayOf(0, 200, 250, 200, 250, 200)
       // One long pulse.
       DangerSound.CAR_HORN -> longArrayOf(0, 600)
     }

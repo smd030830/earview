@@ -4,8 +4,9 @@
   "output_order": [
     "FIRE_ALARM",
     "SIREN",
-    "BABY_CRYING",
+    "GLASS_BREAKING",
     "DOORBELL",
+    "DOOR_KNOCK",
     "CAR_HORN"
   ],
   "groups": [
@@ -22,66 +23,1778 @@
       325
     ],
     [
-      23
+      443
     ],
     [
       355,
       356
     ],
     [
+      359
+    ],
+    [
       308
     ]
   ],
+  "method": "Only final label grouping retargeted; pretrained parameters/frontend unchanged",
+  "reference": "Full 527 sigmoid scores of hash-pinned previously validated TFLite graphs",
+  "limits": "Output parity is not detection accuracy or Android runtime validation",
   "models": {
     "efficientat_mn04_as": {
-      "bytes": 4236012,
-      "sha256": "de5a85179498f7832e670eea9332ad08bbb57e9398b934a7cc28b01a287ac332",
+      "bytes": 4236360,
+      "sha256": "06eae4a7c9c00652d292be324d0557b36c15e0fce08391d4b02d5b19cc62d31a",
+      "source_asset_sha256": "de5a85179498f7832e670eea9332ad08bbb57e9398b934a7cc28b01a287ac332",
       "parity": [
         {
           "case": "silence",
-          "max_abs_error": 8.440110832452774e-09,
-          "tensorflow_max_abs_error": 8.614733815193176e-09
+          "max_abs_error": 0.0
         },
         {
           "case": "noise",
-          "max_abs_error": 5.122274160385132e-09,
-          "tensorflow_max_abs_error": 6.402842700481415e-10
+          "max_abs_error": 0.0
         },
         {
           "case": "multitone",
-          "max_abs_error": 2.5320332497358322e-09,
-          "tensorflow_max_abs_error": 1.1932570487260818e-09
+          "max_abs_error": 0.0
         },
         {
           "case": "chirp",
-          "max_abs_error": 7.683411240577698e-09,
-          "tensorflow_max_abs_error": 8.381903171539307e-09
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-100032-A-0.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-100038-A-14.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-100210-A-36.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-100210-B-36.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-101296-A-19.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-101296-B-19.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-101336-A-30.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-101404-A-34.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-103298-A-9.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-103995-A-30.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-104089-A-22.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-104089-B-22.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-110389-A-0.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-115545-A-48.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-115545-B-48.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-116765-A-41.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-11687-A-47.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-118206-A-31.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-118559-A-17.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-119125-A-45.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-121951-A-8.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-12653-A-15.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-12654-A-15.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-13571-A-46.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-13572-A-46.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-13613-A-37.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-137-A-32.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-137296-A-16.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-14262-A-37.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-155858-A-25.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-155858-B-25.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-15689-A-4.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-15689-B-4.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-16568-A-3.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-17092-A-27.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-17092-B-27.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-17124-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-17150-A-12.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-172649-A-40.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-172649-B-40.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-17295-A-29.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-17367-A-10.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-17565-A-12.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-17585-A-7.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-1791-A-26.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-18074-A-6.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-18074-B-6.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-18527-A-44.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-18527-B-44.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-18631-A-23.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-18655-A-31.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-187207-A-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-18810-A-49.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-19026-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-19111-A-24.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-19118-A-24.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-19501-A-7.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-196660-A-8.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-19898-A-41.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-20133-A-39.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-202111-A-3.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-20545-A-28.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-20736-A-18.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-208757-A-2.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-208757-B-2.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-211527-A-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-211527-B-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-211527-C-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-21189-A-10.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-21896-A-35.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-21934-A-38.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-21935-A-38.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-22694-A-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-22694-B-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-23706-A-49.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-23996-A-35.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-24074-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-24076-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-24796-A-47.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-254507-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-26143-A-21.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-26176-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-26177-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-26806-A-1.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-27403-A-28.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-27724-A-1.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-28005-A-18.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-28135-A-11.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-28135-B-11.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-28808-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-29532-A-16.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-29680-A-21.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-30039-A-26.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-30709-A-23.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-31482-A-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-31482-B-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-32579-A-29.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-34094-A-5.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-34094-B-5.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-34495-A-14.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-39835-A-9.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-41615-A-34.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-50625-A-17.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-51805-A-33.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-51805-B-33.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-53501-A-32.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-54065-A-45.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-54084-A-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-57316-A-13.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-57318-A-13.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-60997-A-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-60997-B-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-76831-A-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-76831-B-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-76831-C-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-76831-D-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-76831-E-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-84536-A-39.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:2-100648-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:2-107351-A-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:2-107351-B-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:2-125520-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:2-128465-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:2-128465-B-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:2-138465-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:2-144137-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:2-151079-A-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:2-42101-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:2-43802-A-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:2-43806-A-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:2-50665-A-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:2-50666-A-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:2-54086-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:2-66637-A-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:2-66637-B-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:2-70052-A-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:2-70052-B-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:2-70936-A-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:2-70938-A-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:2-70939-A-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:2-72688-A-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:2-80482-A-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:3-145577-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:3-146697-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:3-151080-A-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:3-151081-A-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:3-151081-B-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:3-152007-A-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:3-152007-B-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:3-152007-C-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:3-152007-D-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:3-152007-E-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:3-153057-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:3-155130-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:3-155234-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:3-161010-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:3-174840-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:3-243726-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:3-51376-A-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:3-51731-A-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:3-51731-B-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:3-51909-A-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:3-51909-B-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:3-58772-A-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:3-62878-A-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:3-62878-B-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:4-102871-A-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:4-111671-A-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:4-111671-B-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:4-121532-A-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:4-167077-A-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:4-167077-B-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:4-167077-C-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:4-175845-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:4-175846-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:4-175855-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:4-175856-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:4-176631-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:4-176638-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:4-178402-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:4-185575-A-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:4-185575-B-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:4-185575-C-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:4-191015-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:4-59579-A-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:4-59579-B-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:4-67358-A-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:4-80761-A-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:4-90014-A-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:4-90014-B-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:5-117118-A-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:5-117120-A-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:5-117122-A-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:5-133989-A-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:5-133989-B-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:5-150409-A-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:5-151085-A-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:5-160551-A-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:5-179860-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:5-179863-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:5-179865-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:5-179866-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:5-179868-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:5-180156-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:5-180156-B-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:5-180156-C-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:5-184323-A-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:5-198411-A-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:5-198411-B-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:5-198411-C-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:5-198411-D-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:5-198411-E-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:5-198411-F-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:5-198411-G-20.wav",
+          "max_abs_error": 0.0
         }
       ]
     },
     "panns_mobilenetv2": {
-      "bytes": 16458344,
-      "sha256": "ae03954df5d25db9a44d9f4c900fefc7601c3eec21db9e09a063c9c918363e5f",
+      "bytes": 16458692,
+      "sha256": "407c06bda7f61975a917a29a004fb679bbb304191edc72279c63c967c53348d6",
+      "source_asset_sha256": "ae03954df5d25db9a44d9f4c900fefc7601c3eec21db9e09a063c9c918363e5f",
       "parity": [
         {
           "case": "silence",
-          "max_abs_error": 5.587935447692871e-09,
-          "tensorflow_max_abs_error": 9.778887033462524e-09
+          "max_abs_error": 0.0
         },
         {
           "case": "noise",
-          "max_abs_error": 1.280568540096283e-09,
-          "tensorflow_max_abs_error": 1.979060471057892e-09
+          "max_abs_error": 0.0
         },
         {
           "case": "multitone",
-          "max_abs_error": 1.7601996660232544e-07,
-          "tensorflow_max_abs_error": 5.150213837623596e-07
+          "max_abs_error": 0.0
         },
         {
           "case": "chirp",
-          "max_abs_error": 3.4365803003311157e-07,
-          "tensorflow_max_abs_error": 3.864988684654236e-07
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-100032-A-0.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-100038-A-14.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-100210-A-36.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-100210-B-36.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-101296-A-19.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-101296-B-19.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-101336-A-30.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-101404-A-34.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-103298-A-9.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-103995-A-30.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-104089-A-22.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-104089-B-22.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-110389-A-0.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-115545-A-48.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-115545-B-48.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-116765-A-41.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-11687-A-47.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-118206-A-31.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-118559-A-17.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-119125-A-45.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-121951-A-8.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-12653-A-15.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-12654-A-15.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-13571-A-46.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-13572-A-46.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-13613-A-37.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-137-A-32.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-137296-A-16.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-14262-A-37.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-155858-A-25.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-155858-B-25.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-15689-A-4.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-15689-B-4.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-16568-A-3.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-17092-A-27.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-17092-B-27.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-17124-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-17150-A-12.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-172649-A-40.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-172649-B-40.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-17295-A-29.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-17367-A-10.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-17565-A-12.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-17585-A-7.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-1791-A-26.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-18074-A-6.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-18074-B-6.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-18527-A-44.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-18527-B-44.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-18631-A-23.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-18655-A-31.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-187207-A-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-18810-A-49.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-19026-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-19111-A-24.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-19118-A-24.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-19501-A-7.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-196660-A-8.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-19898-A-41.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-20133-A-39.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-202111-A-3.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-20545-A-28.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-20736-A-18.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-208757-A-2.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-208757-B-2.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-211527-A-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-211527-B-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-211527-C-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-21189-A-10.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-21896-A-35.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-21934-A-38.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-21935-A-38.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-22694-A-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-22694-B-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-23706-A-49.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-23996-A-35.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-24074-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-24076-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-24796-A-47.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-254507-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-26143-A-21.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-26176-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-26177-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-26806-A-1.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-27403-A-28.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-27724-A-1.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-28005-A-18.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-28135-A-11.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-28135-B-11.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-28808-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-29532-A-16.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-29680-A-21.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-30039-A-26.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-30709-A-23.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-31482-A-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-31482-B-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-32579-A-29.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-34094-A-5.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-34094-B-5.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-34495-A-14.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-39835-A-9.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-41615-A-34.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-50625-A-17.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-51805-A-33.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-51805-B-33.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-53501-A-32.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-54065-A-45.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-54084-A-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-57316-A-13.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-57318-A-13.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-60997-A-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-60997-B-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-76831-A-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-76831-B-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-76831-C-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-76831-D-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-76831-E-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:1-84536-A-39.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:2-100648-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:2-107351-A-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:2-107351-B-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:2-125520-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:2-128465-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:2-128465-B-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:2-138465-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:2-144137-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:2-151079-A-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:2-42101-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:2-43802-A-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:2-43806-A-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:2-50665-A-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:2-50666-A-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:2-54086-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:2-66637-A-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:2-66637-B-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:2-70052-A-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:2-70052-B-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:2-70936-A-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:2-70938-A-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:2-70939-A-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:2-72688-A-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:2-80482-A-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:3-145577-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:3-146697-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:3-151080-A-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:3-151081-A-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:3-151081-B-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:3-152007-A-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:3-152007-B-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:3-152007-C-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:3-152007-D-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:3-152007-E-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:3-153057-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:3-155130-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:3-155234-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:3-161010-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:3-174840-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:3-243726-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:3-51376-A-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:3-51731-A-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:3-51731-B-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:3-51909-A-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:3-51909-B-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:3-58772-A-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:3-62878-A-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:3-62878-B-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:4-102871-A-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:4-111671-A-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:4-111671-B-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:4-121532-A-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:4-167077-A-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:4-167077-B-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:4-167077-C-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:4-175845-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:4-175846-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:4-175855-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:4-175856-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:4-176631-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:4-176638-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:4-178402-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:4-185575-A-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:4-185575-B-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:4-185575-C-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:4-191015-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:4-59579-A-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:4-59579-B-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:4-67358-A-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:4-80761-A-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:4-90014-A-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:4-90014-B-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:5-117118-A-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:5-117120-A-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:5-117122-A-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:5-133989-A-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:5-133989-B-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:5-150409-A-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:5-151085-A-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:5-160551-A-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:5-179860-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:5-179863-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:5-179865-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:5-179866-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:5-179868-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:5-180156-A-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:5-180156-B-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:5-180156-C-43.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:5-184323-A-42.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:5-198411-A-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:5-198411-B-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:5-198411-C-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:5-198411-D-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:5-198411-E-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:5-198411-F-20.wav",
+          "max_abs_error": 0.0
+        },
+        {
+          "case": "fixture:5-198411-G-20.wav",
+          "max_abs_error": 0.0
         }
       ]
     }

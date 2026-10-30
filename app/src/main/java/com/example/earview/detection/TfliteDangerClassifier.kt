@@ -6,7 +6,7 @@ import org.tensorflow.lite.Interpreter
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
 
-/** Exported models include their own preprocessing and five-label mapping. */
+/** Exported models include their own preprocessing and six-label mapping. */
 class TfliteDangerClassifier private constructor(private val interpreter: Interpreter) : DangerScoreClassifier {
   override val windowSize = interpreter.getInputTensor(0).numElements()
   private val input = buffer(windowSize)

@@ -30,8 +30,8 @@ class ModelAssetTest {
   @Test
   fun ensembleAssetsMatchTheValidatedExports() {
     val expected = mapOf(
-      "efficientat_mn04_as" to "de5a85179498f7832e670eea9332ad08bbb57e9398b934a7cc28b01a287ac332",
-      "panns_mobilenetv2" to "ae03954df5d25db9a44d9f4c900fefc7601c3eec21db9e09a063c9c918363e5f",
+      "efficientat_mn04_as" to "06eae4a7c9c00652d292be324d0557b36c15e0fce08391d4b02d5b19cc62d31a",
+      "panns_mobilenetv2" to "407c06bda7f61975a917a29a004fb679bbb304191edc72279c63c967c53348d6",
     )
     expected.forEach { (name, hash) ->
       val bytes = File(moduleDir, "src/main/assets/ensemble/$name.tflite").readBytes()

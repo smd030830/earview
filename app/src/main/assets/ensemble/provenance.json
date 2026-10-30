@@ -1,10 +1,42 @@
 {
   "format": "float32 TFLite, builtin operations only",
-  "input": {"shape": [31200], "sample_rate": 16000, "channels": 1},
-  "output": {"shape": [1, 5], "labels": ["FIRE_ALARM", "SIREN", "BABY_CRYING", "DOORBELL", "CAR_HORN"]},
+  "input": {
+    "shape": [
+      31200
+    ],
+    "sample_rate": 16000,
+    "channels": 1
+  },
+  "output": {
+    "shape": [
+      1,
+      6
+    ],
+    "labels": [
+      "FIRE_ALARM",
+      "SIREN",
+      "GLASS_BREAKING",
+      "DOORBELL",
+      "DOOR_KNOCK",
+      "CAR_HORN"
+    ]
+  },
   "score_calibration": "none; grouped native sigmoid scores",
-  "modifications": ["sinc upsampling 16 kHz to 32 kHz", "original model-specific waveform frontend", "float32 TensorFlow Lite conversion", "maximum score within each shared AudioSet label group"],
-  "build_versions": {"tensorflow": "2.21.0", "torch": "2.15.0+cpu", "torchvision": "0.29.2+cpu", "torchaudio": "2.11.1+cpu", "torchlibrosa": "0.1.0", "numpy": "2.5.4"},
+  "modifications": [
+    "sinc upsampling 16 kHz to 32 kHz",
+    "original model-specific waveform frontend",
+    "float32 TensorFlow Lite conversion",
+    "maximum score within each shared AudioSet label group",
+    "2026-10-30: replace Baby cry with Shatter and add Knock by retargeting final grouping; pretrained weights unchanged"
+  ],
+  "build_versions": {
+    "tensorflow": "2.21.0",
+    "torch": "2.15.0+cpu",
+    "torchvision": "0.29.2+cpu",
+    "torchaudio": "2.11.1+cpu",
+    "torchlibrosa": "0.1.0",
+    "numpy": "2.5.4"
+  },
   "models": {
     "efficientat_mn04_as": {
       "source_revision": "a425fdce92572e602a1d5634799bd9f1f2efa806",
@@ -23,5 +55,40 @@
       "weights_license": "CC-BY-4.0",
       "weights_license_url": "https://creativecommons.org/licenses/by/4.0/"
     }
+  },
+  "output_retargeting": {
+    "tool": "tools/ensemble_export/retarget_outputs.py",
+    "tensorflow": "2.21.0",
+    "source_asset_sha256": {
+      "efficientat_mn04_as": "de5a85179498f7832e670eea9332ad08bbb57e9398b934a7cc28b01a287ac332",
+      "panns_mobilenetv2": "ae03954df5d25db9a44d9f4c900fefc7601c3eec21db9e09a063c9c918363e5f"
+    },
+    "groups": [
+      [
+        399,
+        400
+      ],
+      [
+        396,
+        397,
+        322,
+        323,
+        324,
+        325
+      ],
+      [
+        443
+      ],
+      [
+        355,
+        356
+      ],
+      [
+        359
+      ],
+      [
+        308
+      ]
+    ]
   }
 }

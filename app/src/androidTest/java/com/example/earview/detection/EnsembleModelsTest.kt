@@ -11,7 +11,7 @@ import org.junit.runner.RunWith
 @RunWith(AndroidJUnit4::class)
 class EnsembleModelsTest {
   @Test
-  fun bundledModelsAcceptAudioAndReturnFiveFiniteScores() {
+  fun bundledModelsAcceptAudioAndReturnSixFiniteScores() {
     loadEnsemble(ApplicationProvider.getApplicationContext()).use { ensemble ->
       assertEquals(31_200, ensemble.windowSize)
       repeat(2) {

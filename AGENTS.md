@@ -1,8 +1,8 @@
 # AGENTS.md
 
 ## Project
-Android app (Kotlin, Jetpack Compose) that listens to ambient sound and alerts deeply hard-of-hearing users when one of 5 danger sounds is detected: fire alarm, doorbell, baby crying, car horn, siren.
-Detection runs on-device with YAMNet (TensorFlow Lite). Min SDK 26.
+Android app (Kotlin, Jetpack Compose) that listens to ambient sound and alerts deeply hard-of-hearing users when one of 6 danger sounds is detected: fire alarm, siren, glass breaking, doorbell, door knock, car horn.
+Detection runs on-device with a YAMNet + EfficientAT + PANNs ensemble (TensorFlow Lite). Min SDK 26.
 
 ## Hard rules
 - Never store, log, or transmit audio. Process it in memory only. No network calls for detection.

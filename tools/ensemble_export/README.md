@@ -7,8 +7,8 @@ model training is performed. The app has no PyTorch, Python, or network dependen
 ## Contract
 
 - Input: float32 `[31200]`, 1.95 seconds of mono PCM at 16 kHz, range `[-1, 1]`.
-- Output: float32 `[1, 5]` grouped sigmoid scores in the order
-  `FIRE_ALARM, SIREN, BABY_CRYING, DOORBELL, CAR_HORN`.
+- Output: float32 `[1, 6]` grouped sigmoid scores in the order
+  `FIRE_ALARM, SIREN, GLASS_BREAKING, DOORBELL, DOOR_KNOCK, CAR_HORN`.
 - Grouping uses the maximum of the matching AudioSet labels, matching the app's
   YAMNet sound rules. These are model scores, **not calibrated probabilities**.
 - Frontends are included: torchaudio sinc resampling 16 to 32 kHz, original
@@ -54,6 +54,32 @@ on representative labeled audio and physical Android/iOS devices.
 
 ## Provenance and attribution
 
+### Six-target output update (2026-10-30)
+
+The currently bundled six-output assets were produced with
+`retarget_outputs.py`, rather than rerunning PyTorch conversion. Both old graphs
+already contain all 527 native sigmoid scores. This tool changes only the final
+grouping: Baby cry is replaced by Shatter (443), Knock (359) is added, and the
+other four groups, frontend, and pretrained parameters remain unchanged.
+Indices refer to the pinned upstream AudioSet label list, not YAMNet indices.
+
+```powershell
+.venv-ml/Scripts/python.exe tools/ensemble_export/retarget_outputs.py
+```
+
+The tool needs the exact previous five-output assets (hashes are checked) in
+`tools/ensemble_export/.cache/five-sounds/`. During the initial update it copies
+them from the asset directory. For a fresh checkout, retrieve those historical
+assets from the preceding Git revision into that cache. The full exporter above
+also supports the six-target grouping directly, but its byte hashes may differ.
+
+Current `validation.json` checks six-output parity against the original full
+527-score TFLite graph and verifies the unchanged four scores on 218 inputs
+(four synthetic, 214 cached external fixtures). This is distinct from original
+PyTorch conversion parity, preserved in `validation-five-sounds.json`.
+Neither parity check establishes detection accuracy or Android compatibility.
+The runtime used for retargeting is recorded in `provenance.json`.
+
 EfficientAT code and weights:
 
 - Florian Schmid et al., EfficientAT, MIT license.
@@ -80,5 +106,5 @@ PANNs pretrained weights:
 - Checkpoint SHA-256: `22437af9eb5ed1854b5ad285b4a17d5fc566f1a3b23df40db5541f5705ca340f`.
 
 Derived assets modify deployment format and add the waveform frontend and
-five grouped outputs. Original training weights are retained. Upstream MIT
+six grouped outputs. Original training weights are retained. Upstream MIT
 notices and pretrained-weight attribution accompany the assets.
