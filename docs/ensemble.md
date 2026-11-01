@@ -23,7 +23,39 @@ Bundled `assets/ensemble/validation.json` records conversion parity and asset ha
 - Align input windows at the newest sample. Different window lengths are allowed.
 - Keep the shortest model's half-window decision cadence (YAMNet: 7,800 samples,
   487.5 ms), rather than slowing decisions to half the longest model's window.
-- Take the arithmetic mean of the three mapped confidences for each sound.
+- Convert each mapped confidence with its model/sound-specific internal correction,
+  then take the arithmetic mean of the three corrected scores for each sound.
+
+## Score correction before averaging (2026-11-01, BL-003/BL-006)
+
+`ScoreCalibration.kt` is the single configuration point for 18 corrections:
+YAMNet, EfficientAT and PANNs each have one entry for every target sound.
+`ScoreCorrection(scale, offset)` computes `clamp(raw * scale + offset, 0, 1)`.
+`loadEnsemble` attaches the matching correction to each model by name before
+passing its scores to `EnsembleClassifier`. The final average is compared with
+the existing per-sound threshold; windows, cadence, model weights and UI are unchanged.
+Invalid raw scores fail before conversion so clipping cannot hide corrupt output.
+
+Example only: scales `5/3`, `0.8`, `1` convert raw scores `0.3`, `0.5`, `0.6`
+into `0.5`, `0.4`, `0.6`; their mean is `0.5`. This example is covered by a test,
+not deployed as fitted parameters. All production scales are initially 1 and
+offsets 0, intentionally preserving behavior until measured coefficients exist.
+Applying arbitrary example coefficients would change recall and false alarms
+without evidence. Score conversion alone does not calibrate probabilities.
+
+For future tuning, fit coefficients on separate calibration fixtures and evaluate
+the complete corrected-average decision on held-out sources. Fire alarm/doorbell
+still lack positive evaluation fixtures. Existing PC reports and Python evaluation
+describe raw means, numerically identical to the current identity configuration;
+nonidentity corrections require updating that offline evaluator before using it
+to validate app behavior.
+
+Verification on 2026-11-01: 101 JVM tests passed (including nine score-correction
+tests covering the numeric example, corrected-average detection, range limits,
+invalid inputs/configuration, unchanged defaults and resource/timing delegation).
+Debug application and Android-test APKs built; Android lint and ktlint passed.
+Android instrumented tests and physical-device measurements were not rerun for
+this correction-layer change. No fitted accuracy improvement is claimed.
 
 ## Experimental limits
 

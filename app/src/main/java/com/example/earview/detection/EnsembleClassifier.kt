@@ -1,7 +1,9 @@
 package com.example.earview.detection
 
 /**
- * Equal-weight score averaging (BL-005/006). No audio or inference results are persisted.
+ * Equal-weight score averaging after per-model correction (BL-003/005/006).
+ * Production model sources are wrapped by [CalibratedSoundClassifier] before averaging.
+ * No audio or inference results are persisted.
  * Scores are not calibrated probabilities; thresholds need ensemble-specific validation.
  */
 class EnsembleClassifier(private val models: List<DangerScoreClassifier>) : DangerScoreClassifier {
